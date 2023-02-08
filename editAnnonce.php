@@ -31,7 +31,7 @@ if (isset($_GET['id-to-edit'])):
 
 <button class="close-edit-modal">&times;</button>
 <div class="more_info_modal_img">
-    <img src="<?php echo $annonce['image'] ?>" alt="house image">
+    <img src="<?php echo "images/" . $annonce['image'] ?>" alt="house image">
 </div>
 <form action="editAnnonce.php" class="edit_annonce_info" method="post">
     <div class="edit-Specifications">
@@ -72,7 +72,7 @@ if (isset($_GET['id-to-edit'])):
         <input type="text" name="edited-description" id="edited-description" class="edited-description">
         <hr>
         <input type="hidden" name="id-to-edit" value="<?php echo $annonce['id'] ?>">
-        <input type="submit" name="updateAnnonce"></input>
+        <input type="submit" name="updateAnnonce" value="update"></input>
     </div>
 </form>
 <?php
