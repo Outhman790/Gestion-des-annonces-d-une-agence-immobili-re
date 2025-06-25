@@ -104,6 +104,11 @@ header h1 {
   border-radius: 0.75rem;
   box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.7);
 }
+#filter-annonces select,
+#filter-annonces input[type="number"] {
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+}
 #filter-annonces input:nth-of-type(1),
 #filter-annonces input:nth-of-type(2) {
   width: 5rem;
@@ -122,6 +127,11 @@ header h1 {
   color: white;
   border-radius: 0.5rem;
   cursor: pointer;
+}
+#filter-annonces input[type="submit"]:hover,
+#filter-annonces input[type="button"]:hover,
+#filter_btn:hover {
+  background-color: #0f4ea8;
 }
 #filter_btn {
   padding: 0.75rem 2rem;
