@@ -101,16 +101,12 @@ const editAnnonce = (id) => {
     //Call a function when the state changes.
     if (this.readyState == 4 && this.status == 200) {
       let editModal = this.responseText;
-      document.querySelector(".edit-annonce-modal").innerHTML = editModal;
-      let editAnnonceModal = document.querySelector(".edit-annonce-modal");
-      let closeEditModal = document.querySelector(".close-edit-modal");
-      document
-        .querySelectorAll(".edit-annonce-icon")
-        .forEach((editAnnonceIcon) => {
-          editAnnonceIcon.addEventListener("click", (e) => {
-            openModal(editAnnonceModal, overlay, "flex");
-          });
-        });
+      const modalContainer = document.querySelector(".edit-annonce-modal");
+      modalContainer.innerHTML = editModal;
+      const editAnnonceModal = document.querySelector(".edit-annonce-modal");
+      const closeEditModal = document.querySelector(".close-edit-modal");
+
+      openModal(editAnnonceModal, overlay, "flex");
 
       closeEditModal.addEventListener("click", (e) => {
         closeModal(editAnnonceModal, overlay, "none");
