@@ -14,6 +14,18 @@ let btnCloseModal = document.querySelector(".close-modal");
 let moreInfoModal = document.querySelector("#more_info_modal");
 let overlay = document.querySelector(".overlay");
 
+const initializeCardActions = () => {
+  document.querySelectorAll(".delete-annonce-icon").forEach((icon) => {
+    icon.addEventListener("click", () => {
+      openModal(deleteAnnonceModal, overlay, "block");
+    });
+  });
+  document.querySelectorAll(".more-info").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      openModal(moreInfoModal, overlay, "flex");
+    });
+  });
+};
 const openModal = function (modal, overlay, display) {
   modal.style.display = display;
   overlay.classList.remove("hidden");
@@ -23,6 +35,8 @@ const closeModal = function (modal, overlay, display) {
   modal.style.display = display;
   overlay.classList.add("hidden");
 };
+// Initialize actions for dynamically loaded cards
+initializeCardActions();
 // OPEN DELETE CONFIRMATION MODAL WHEN CLICKING ON DELETE ICONS
 deleteAnnonceIcons.forEach((deleteAnnonceIcon) => {
   deleteAnnonceIcon.addEventListener("click", () => {
@@ -144,15 +158,22 @@ const filterAnnonces = (min, max, type) => {
       let filteredCards = this.response;
       document.querySelector(".cards").innerHTML = "";
       document.querySelector(".cards").innerHTML = filteredCards;
+      initializeCardActions();
     }
   };
 };
 filter_btn.addEventListener("click", (e) => {
-  let minPrice = document.querySelector("#minPrice").value;
-  let maxPrice = document.querySelector("#maxPrice").value;
-  let annoncestype = document.querySelector("#annonces-type").value;
-  console.log(minPrice);
-  console.log(maxPrice);
-  console.log(annoncestype);
+  const minInput = document.querySelector("#minPrice");
+  const maxInput = document.querySelector("#maxPrice");
+  const typeSelect = document.querySelector("#annonces-type");
+
+  const minPrice = minInput.value;
+  const maxPrice = maxInput.value;
+  const annoncestype = typeSelect.value;
+
   filterAnnonces(minPrice, maxPrice, annoncestype);
+
+  minInput.value = "";
+  maxInput.value = "";
+  typeSelect.selectedIndex = 0;
 });
