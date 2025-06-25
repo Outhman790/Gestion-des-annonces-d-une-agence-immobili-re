@@ -20,38 +20,45 @@ if (isset($_GET['id-to-edit'])):
                 <p>Specifications</p>
                 <hr class="bold">
                 <label for="edited-title">title</label>
-                <input type="text" name="edited-title" id="edited-title" class="edited-title">
+                <input type="text" name="edited-title" id="edited-title" class="edited-title"
+                    value="<?php echo htmlspecialchars($annonce['title']); ?>">
                 <hr>
                 <div>
                     <label for="edited-price">price</label>
-                    <input type="number" name="edited-price" id="edited-price" class="edited-price">
+                    <input type="number" name="edited-price" id="edited-price" class="edited-price"
+                        value="<?php echo htmlspecialchars($annonce['price']); ?>">
                 </div>
                 <hr>
                 <div>
                     <label for="edited-area">area</label>
-                    <input type="number" name="edited-area" id="edited-area" class="edited-area">
+                    <input type="number" name="edited-area" id="edited-area" class="edited-area"
+                        value="<?php echo htmlspecialchars($annonce['area']); ?>">
                 </div>
                 <hr>
                 <div>
                     <label for="edited-adress">adress</label>
-                    <input type="text" name="edited-adress" id="edited-adress" class="edited-adress">
+                    <input type="text" name="edited-adress" id="edited-adress" class="edited-adress"
+                        value="<?php echo htmlspecialchars($annonce['adress']); ?>">
                 </div>
                 <hr>
                 <div>
                     <label for="edited-date ">Date of annonce</label>
-                    <input type="date" name="edited-date" id="edited-date" class="edited-date">
+                    <input type="date" name="edited-date" id="edited-date" class="edited-date"
+                        value="<?php echo htmlspecialchars($annonce['date']); ?>">
                 </div>
                 <hr>
                 <div>
                     <label for="edited-type">Type of annonce</label>
                     <select name="edited-type" id="edited-type">
-                        <option value="Vente">Vente</option>
-                        <option value="Location">Location</option>
+                        <option value="Vente" <?php if ($annonce['type'] === 'Vente') echo 'selected'; ?>>Vente</option>
+                        <option value="Location" <?php if ($annonce['type'] === 'Location') echo 'selected'; ?>>Location
+                        </option>
                     </select>
                 </div>
                 <hr>
                 <label for="edited-description">description</label>
-                <input type="text" name="edited-description" id="edited-description" class="edited-description">
+                <input type="text" name="edited-description" id="edited-description" class="edited-description"
+                    value="<?php echo htmlspecialchars($annonce['description']); ?>">
                 <hr>
                 <input type="hidden" name="id-to-edit" value="<?php echo $annonce['id'] ?>">
                 <input type="submit" name="updateAnnonce" value="update"></input>
