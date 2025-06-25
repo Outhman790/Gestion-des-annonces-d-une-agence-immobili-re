@@ -48,6 +48,7 @@ endif;
     <section class="container">
         <div id="filter-annonces">
             <select name="type" id="annonces-type">
+                <option value="">All</option>
                 <option value="Vente">Vente</option>
                 <option value="Location">Location</option>
             </select>
@@ -55,7 +56,7 @@ endif;
             <input type="number" min="0" name="minPrice" id="minPrice" />
             <label for="max">Max:</label>
             <input type="number" min="1" name="maxPrice" id="maxPrice" />
-            <button id="filter_btn" />Filter</button>
+            <button id="filter_btn">Filter</button>
             <input type="button" value="Add" id="add_annonce_btn" />
         </div>
         <section id="cards-section">
@@ -64,34 +65,34 @@ endif;
 
                 <?php
                 foreach ($annonces as $annonce):
-                    ?>
-                <div class="card">
+                ?>
+                    <div class="card">
 
-                    <img src="<?php echo "images/" . $annonce['image'] ?>" alt="house image" />
+                        <img src="<?php echo "images/" . $annonce['image'] ?>" alt="house image" />
 
-                    <div class="card-body">
-                        <h4>
-                            <?php echo cutStr($annonce['title'], 'title', 100) ?>
-                        </h4>
-                        <p>
-                            <?php
+                        <div class="card-body">
+                            <h4>
+                                <?php echo cutStr($annonce['title'], 'title', 100) ?>
+                            </h4>
+                            <p>
+                                <?php
                                 echo cutStr($annonce['description'], 'description', 100)
-                                    ?>
-                        </p>
-                        <span>
-                            <?php echo $annonce['price'] . ' MAD' ?>
-                        </span>
-                        <a class="more-info" onclick="getmoreInfo(<?php echo $annonce['id'] ?>)"> More info </a>
-                        <div class="card-icons">
-                            <i class="fa-solid fa-trash delete-annonce-icon"
-                                onclick="idOfDeletion(<?php echo $annonce['id'] ?>)"></i>
-                            <i value="<?php echo $annonce['id'] ?>"
-                                class="fa-regular fa-pen-to-square edit-annonce-icon"
-                                onclick="editAnnonce(<?php echo $annonce['id'] ?>)"
-                                value="<?php echo $annonce['id'] ?>"></i>
+                                ?>
+                            </p>
+                            <span>
+                                <?php echo $annonce['price'] . ' MAD' ?>
+                            </span>
+                            <a class="more-info" onclick="getmoreInfo(<?php echo $annonce['id'] ?>)"> More info </a>
+                            <div class="card-icons">
+                                <i class="fa-solid fa-trash delete-annonce-icon"
+                                    onclick="idOfDeletion(<?php echo $annonce['id'] ?>)"></i>
+                                <i value="<?php echo $annonce['id'] ?>"
+                                    class="fa-regular fa-pen-to-square edit-annonce-icon"
+                                    onclick="editAnnonce(<?php echo $annonce['id'] ?>)"
+                                    value="<?php echo $annonce['id'] ?>"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <?php endforeach ?>
             </div>
         </section>
@@ -111,7 +112,7 @@ endif;
             <a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a>
             <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
         </div>
-        <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by </p>
+        <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by </p>
     </footer>
 
 
